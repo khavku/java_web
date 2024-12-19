@@ -1,0 +1,89 @@
+@charset "ISO-8859-1";
+
+body {
+    background-color: rgb(48, 47, 47);
+    font-family: 'Arial', sans-serif; /* Cải thiện font chữ */
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    background-color: rgb(0, 0, 0);
+    margin-top: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-radius: 10px; /* Bo góc cho div */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Thêm bóng đổ */
+}
+
+table {
+    width: 90%; /* Chiếm 90% chiều rộng màn hình */
+    margin: 0 auto 40px; /* Căn giữa và thêm khoảng cách dưới */
+    padding: 10px;
+    border-collapse: collapse; /* Loại bỏ khoảng cách giữa các ô */
+    box-shadow: 5px 5px 15px green;
+    border-radius: 8px; /* Bo góc cho bảng */
+}
+
+td {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: antiquewhite;
+    border-bottom: 2px solid #ccc; /* Đường viền giữa các dòng */
+}
+
+th {
+    padding: 12px;
+    background-color: green;
+    color: black;
+    text-transform: uppercase; /* Chữ in hoa */
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+
+h2 {
+    color: antiquewhite;
+    padding: 20px;
+    text-align: center; /* Căn giữa tiêu đề */
+    font-size: 24px;
+}
+
+.btns {
+    border: 1px green solid;
+    padding: 10px 20px;
+    background-color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px; /* Bo góc cho button */
+    transition: all 0.3s ease;
+}
+
+.btns:hover {
+    background-color: green;
+    color: white;
+    transform: scale(1.1); /* Tăng kích thước khi hover */
+}
+
+.back {
+    width: max-content;
+    color: white;
+    text-decoration: none;
+    border: 1px black solid;
+    padding: 10px 20px;
+    background-color: darkslategray;
+    position: fixed;
+    bottom: 20px; /* Đặt nút quay lại ở dưới cùng */
+    left: 20px; /* Căn lề trái */
+    border-radius: 5px; /* Bo góc */
+    transition: all 0.3s ease;
+}
+
+.back:hover {
+    background-color: darkgreen;
+    transform: scale(1.1); /* Hiệu ứng phóng to khi hover */
+}

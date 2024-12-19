@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodFrenzy</title> 
+    <link rel="icon" type="image/x-icon" href="./Images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="" th:href="@{/css/Navigation.css}" />
+    <link rel="stylesheet" href="" th:href="@{css/Products.css}" />
+</head>
+<style>
+@charset "ISO-8859-1";
+body {
+    font-family: Arial, sans-serif;
+    background-color: #101010;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+#main-container {
+    display: flex;
+    justify-content: center; /* Center the grid in the container */
+    align-items: flex-start;
+    overflow-y: auto; /* Enable vertical scroll */
+    height: 80vh; /* Set a height limit to trigger vertical scroll */
+    padding: 20px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #444; /* Dark scrollbar handle */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #666; /* Lighter color on hover */
+}
+
+#biryani {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid */
+    grid-gap: 20px; /* Gap between items */
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2C2C2C;
+    border-radius: 10px;
+}
+
+#category-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFAA00;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.item-card {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#rating {
+    padding: 7px;
+    color: gold;
+    background: #1c1c1c;
+    font-size: 14px;
+    border-radius: 12px;
+}
+
+.fa-heart-o {
+    padding: 6px;
+    background-color: #555;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.fa-heart-o:hover {
+    background-color: crimson;
+}
+
+.item-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 10px auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.item-card img:hover {
+    transform: scale(1.1);
+}
+
+.item-name {
+    margin: 5px 0;
+    font-weight: 600;
+    color: #ddd;
+    font-size: 1.1rem;
+}
+
+.item-price {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+#buy {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: crimson;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#buy:hover {
+    background-color: #218838;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    #biryani {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        grid-gap: 15px;
+    }
+
+    .item-card {
+        padding: 10px;
+    }
+
+    #category-name {
+        font-size: 1.5rem;
+    }
+}
+</style>
+
+<body>
+    <nav th:replace="~{Navigation::navbar()}"></nav>
+    <div id="main-container">
+        <div id="products-section"> 
+            <!-- Product 1 -->
+            <div class="item-card">
+                <div class="card-top">
+                    <i class="fa fa-star" id="rating">$.5</i>
+                    <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+                </div>
+                <img src="./Images/biryani/Biryani_of_Hyderabadi.jpg" alt="Chicken Biryani">
+                <p class="item-name">Chicken Biryani</p>
+                <p class="item-price">Price: ₫ 410</p>
+                <form action="/product/order" method="post">
+                    <input type="hidden" name="oName" value="Chicken Biryani" />
+                    <input type="hidden" name="oPrice" value="410" />
+                    <input type="number" name="oQuantity" min="1" placeholder="Minimum: 1KG" required />
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="item-card">
+                <div class="card-top">
+                    <i class="fa fa-star" id="rating">$.5</i>
+                    <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+                </div>
+                <img src="./Images/paneer/paneer-butter-masala.jpg" alt="Paneer Butter">
+                <p class="item-name">Paneer Butter</p>
+                <p class="item-price">Price: ₫ 290</p>
+                <form action="/product/order" method="post">
+                    <input type="hidden" name="oName" value="Paneer Butter" />
+                    <input type="hidden" name="oPrice" value="290" />
+                    <input type="number" name="oQuantity" min="1" placeholder="Minimum: 1KG" required />
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="item-card">
+                <div class="card-top">
+                    <i class="fa fa-star" id="rating">$.4.5</i>
+                    <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+                </div>
+                <img src="./Images/chicken/Afgani-chicken-curry.jpg" alt="Afgani Chicken">
+                <p class="item-name">Afgani Chicken</p>
+                <p class="item-price">Price: ₫ 410</p>
+                <form action="/product/order" method="post">
+                    <input type="hidden" name="oName" value="Afgani Chicken" />
+                    <input type="hidden" name="oPrice" value="410" />
+                    <input type="number" name="oQuantity" min="1" placeholder="Minimum: 1KG" required />
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="item-card">
+                <div class="card-top">
+                    <i class="fa fa-star" id="rating">$.5</i>
+                    <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+                </div>
+                <img src="./Images/chicken/butter-chicken.jpg" alt="Butter Chicken">
+                <p class="item-name">Butter Chicken</p>
+                <p class="item-price">Price: ₫ 380</p>
+                <form action="/product/order" method="post">
+                    <input type="hidden" name="oName" value="Butter Chicken" />
+                    <input type="hidden" name="oPrice" value="380" />
+                    <input type="number" name="oQuantity" min="1" placeholder="Minimum: 1KG" required />
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="item-card">
+                <div class="card-top">
+                    <i class="fa fa-star" id="rating">$.4.5</i>
+                    <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+                </div>
+                <img src="./Images/north-india-food/Laccha-Paratha.jpg" alt="Laccha Paratha">
+                <p class="item-name">Laccha Paratha</p>
+                <p class="item-price">Price: ₫ 30</p>
+                <form action="/product/order" method="post">
+                    <input type="hidden" name="oName" value="Laccha Paratha" />
+                    <input type="hidden" name="oPrice" value="30" />
+                    <input type="number" name="oQuantity" min="1" placeholder="Minimum: 1KG" required />
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="item-card">
+                <div class="card-top">
+                    <i class="fa fa-star" id="rating">$.5</i>
+                    <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+                </div>
+                <img src="./Images/chicken/Matka-Chicken.jpg" alt="Matka Chicken">
+                <p class="item-name">Matka Chicken</p>
+                <p class="item-price">Price: ₫ 510</p>
+                <form action="/product/order" method="post">
+                    <input type="hidden" name="oName" value="Matka Chicken" />
+                    <input type="hidden" name="oPrice" value="510" />
+                    <input type="number" name="oQuantity" min="1" placeholder="Minimum: 1KG" required />
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="item-card">
+                <div class="card-top">
+                    <i class="fa fa-star" id="rating">$.4.0</i>
+                    <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+                </div>
+                <img src="./Images/chicken/Tandoori-chicken-tikka.jpg" alt="Tandoori Chicken Tikka">
+                <p class="item-name">Chicken Tikka</p>
+                <p class="item-price">Price: ₫ 310</p>
+                <form action="/product/order" method="post">
+                    <input type="hidden" name="oName" value="Chicken Tikka" />
+                    <input type="hidden" name="oPrice" value="310" />
+                    <input type="number" name="oQuantity" min="1" placeholder="Minimum: 1KG" required />
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="item-card">
+                <div class="card-top">
+                    <i class="fa fa-star" id="rating">$.4.5</i>
+                    <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+                </div>
+                <img src="./Images/north-india-food/Honey-Chilli-Potato.jpg" alt="Honey Chilli Potato">
+                <p class="item-name">Chilli Potato</p>
+                <p class="item-price">Price: ₫ 150</p>
+                <form action="/product/order" method="post">
+                    <input type="hidden" name="oName" value="Chilli Potato" />
+                    <input type="hidden" name="oPrice" value="150" />
+                    <input type="number" name="oQuantity" min="1" placeholder="Minimum: 1KG" required />
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="item-card">
+                <div class="card-top">
+                    <i class="fa fa-star" id="rating">$.4.5</i>
+                    <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+                </div>
+                <img src="./Images/north-india-food/chola-bhatura.jpg" alt="Chola Bhatura">
+                <p class="item-name">Chola Bhatura</p>
+                <p class="item-price">Price: ₫ 180</p>
+                <form action="/product/order" method="post">
+                    <input type="hidden" name="oName" value="Chola Bhatura" />
+                    <input type="hidden" name="oPrice" value="180" />
+                    <input type="number" name="oQuantity" min="1" placeholder="Minimum: 1KG" required />
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="item-card">
+                <div class="card-top">
+                    <i class="fa fa-star" id="rating">$.4.0</i>
+                    <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+                </div>
+                <img src="./Images/north-india-food/Gulab Jamun.jpg" alt="Gulab Jamun">
+                <p class="item-name">Gulab Jamun</p>
+                <p class="item-price">Price: ₫ 50</p>
+                <form action="/product/order" method="post">
+                    <input type="hidden" name="oName" value="Gulab Jamun" />
+                    <input type="hidden" name="oPrice" value="50" />
+                    <input type="number" name="oQuantity" min="1" placeholder="Minimum: 1KG" required />
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="item-card">
+                <div class="card-top">
+                    <i class="fa fa-star" id="rating">$.4.5</i>
+                    <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+                </div>
+                <img src="./Images/chinese/chowmein.jpg" alt="Chowmein">
+                <p class="item-name">Chowmein</p>
+                <p class="item-price">Price: ₫ 150</p>
+                <form action="/product/order" method="post">
+                    <input type="hidden" name="oName" value="Chowmein" />
+                    <input type="hidden" name="oPrice" value="150" />
+                    <input type="number" name="oQuantity" min="1" placeholder="Minimum: 1KG" required />
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+
+            <!-- Product 12 -->
+            <div class="item-card">
+                <div class="card-top">
+                    <i class="fa fa-star" id="rating">$.5.0</i>
+                    <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+                </div>
+                <img src="./Images/paneer/paneer-do-pyaza.jpg" alt="Paneer Do Pyaza">
+                <p class="item-name">Paneer Do Pyaza</p>
+                <p class="item-price">Price: ₫ 270</p>
+                <form action="/product/order" method="post">
+                    <input type="hidden" name="oName" value="Paneer Do Pyaza" />
+                    <input type="hidden" name="oPrice" value="270" />
+                    <input type="number" name="oQuantity" min="1" placeholder="Minimum: 1KG" required />
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Optional login validation
+        document.querySelectorAll("#buy").forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                alert("Please Login as a User to buy Products");
+            });
+        });
+    </script>
+</body>
+
+</html>

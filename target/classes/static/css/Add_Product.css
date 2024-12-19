@@ -1,0 +1,86 @@
+body {
+    background-image: url("https://www.thespruceeats.com/thmb/hqqNrNhIpqPqV2u0T0K-IUzUsEo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-cuisine-of-north-india-1957883-d32a933f506d43f59ac38a8eb956884a.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+* {
+    color: rgb(192, 192, 192);
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.addProducts {
+    background-color: rgba(0, 0, 0, 0.7); /* Làm mờ nền cho form */
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Căn giữa form */
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input, textarea {
+    display: block;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 2px darkgreen solid;
+    font-size: 16px;
+    width: 100%;
+    color: white;
+    margin-bottom: 20px;
+}
+
+button {
+    color: rgb(192, 192, 192);
+    background-color: green;
+    border: 1px solid darkgreen;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: darkgreen;
+    color: white;
+    transform: scale(1.05);
+}
+
+a {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border: 1px solid darkslategray;
+    padding: 12px 25px;
+    background-color: darkslategray;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background-color: green;
+    color: white;
+    transform: scale(1.05);
+}

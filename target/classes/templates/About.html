@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính năng Chính - FoodFrenzy</title>
+	<link rel="icon" type="image/x-icon" href="./Images/logo.png">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	    <link rel="stylesheet" href="" th:href="@{/css/Navigation.css}" />
+	    <link rel="stylesheet" href="" th:href="@{/css/About.css}" /> 
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 2.5em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .feature-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .feature-box {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .feature-box h3 {
+            font-size: 1.8em;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+        .feature-box p {
+            font-size: 1.1em;
+            color: #555;
+        }
+        .tech-section, .benefit-section {
+            margin-top: 60px;
+        }
+        .tech-section ul, .benefit-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .tech-section li, .benefit-section li {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .tech-section li i, .benefit-section li i {
+            color: #e74c3c;
+            margin-right: 10px;
+        }
+        .benefit-section {
+            margin-bottom: 60px;
+        }
+    </style>
+</head>
+<body>
+	<nav th:replace="~{Navigation::navbar()}"></nav>
+    <div class="container">
+        <h2>Tính Năng Chính</h2>
+
+        <!-- Section: Feature -->
+        <div class="feature-section">
+            <div class="feature-box">
+                <h3><i class="fas fa-shopping-cart"></i> Đặt Hàng Sản Phẩm</h3>
+                <p>Giao diện danh mục sản phẩm trực quan, dễ dàng duyệt qua các món ăn theo loại: món chính, đồ uống, món tráng miệng,...</p>
+                <p>Hỗ trợ tìm kiếm sản phẩm theo từ khóa. Thêm sản phẩm vào giỏ hàng và tiến hành đặt hàng với thông tin đầy đủ.</p>
+            </div>
+            <div class="feature-box">
+                <h3><i class="fas fa-cogs"></i> Trang Quản Lý Cho Admin</h3>
+                <p>Quản trị viên có thể thêm, sửa, xóa sản phẩm và quản lý đơn hàng.</p>
+            </div>
+            <div class="feature-box">
+                <h3><i class="fas fa-server"></i> Công Nghệ Sử Dụng</h3>
+                <p><strong>Backend:</strong> Java Spring Boot, Hibernate/JPA cho quản lý cơ sở dữ liệu.</p>
+                <p><strong>Frontend:</strong> HTML5, CSS3, Bootstrap để xây dựng giao diện thân thiện, Thymeleaf để tích hợp dữ liệu động.</p>
+                <p><strong>Cơ sở dữ liệu:</strong> MySQL, triển khai trên Tomcat.</p>
+            </div>
+        </div>
+
+       
+
+        <!-- Section: Benefits -->
+        <div class="benefit-section">
+            <h2>Lợi Ích Của Trang Web</h2>
+            <h3>Đối với khách hàng:</h3>
+            <ul>
+                <li><i class="fas fa-arrow-right"></i> Tiết kiệm thời gian, dễ dàng đặt món ăn yêu thích mọi lúc mọi nơi.</li>
+                <li><i class="fas fa-arrow-right"></i> Giao diện đơn giản, dễ sử dụng.</li>
+            </ul>
+            <h3>Đối với nhà quản trị:</h3>
+            <ul>
+                <li><i class="fas fa-arrow-right"></i> Dễ dàng quản lý toàn bộ sản phẩm, khách hàng, đơn hàng trên cùng một nền tảng.</li>
+                <li><i class="fas fa-arrow-right"></i> Nâng cao hiệu quả bán hàng và chăm sóc khách hàng.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
